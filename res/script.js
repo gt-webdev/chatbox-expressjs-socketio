@@ -43,6 +43,12 @@ function retrieveMessages() {
         appendMessage(messages[i]);
       }
     }
+    //focus back on the input-box after retrieving messages
+    document.querySelector('.input-field > form > input[type="text"]').focus();
   };
   xhr.send();
 }
+
+retrieveMessages();
+//we sholud retrieve new messages every 2 seconds
+setInterval(retrieveMessages, 2000);

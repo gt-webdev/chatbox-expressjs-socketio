@@ -5,9 +5,7 @@ var app = express();
 app.use(express.bodyParser());
 
 //set up an array of messages
-var messages = ["this is a simple message", 
-  "this is also a message", 
-  "php hammer"];
+var messages = [];
 
 //get static files
 // get the main html page at /
