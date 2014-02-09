@@ -26,3 +26,23 @@ function appendMessage(message) {
     message_box.insertBefore(new_message, message_box.children[0]);
   }
 }
+
+function retrieveMessages() {
+  //request the data from the server
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/api/messages.json", true);
+  xhr.onreadystatechange = function() {
+    //if the request was successful, parse the data for messages
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var messages = JSON.parse(xhr.response);
+      //clear thecurrent message-box
+      var message_box = document.querySelector('.message-box');
+      message_box.innerHTML = "";
+      //append all the messages to the message-box
+      for (var i = 0; i < messages.length; i++) {
+        appendMessage(messages[i]);
+      }
+    }
+  };
+  xhr.send();
+}
