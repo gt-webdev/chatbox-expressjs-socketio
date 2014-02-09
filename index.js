@@ -2,6 +2,8 @@ var express = require("express");
 
 var app = express();
 
+app.use(express.bodyParser());
+
 //set up an array of messages
 var messages = ["this is a simple message", 
   "this is also a message", 
@@ -27,6 +29,14 @@ app.get('/script.js', function(req, res) {
 //Send messages array at /api/messages.json
 app.get('/api/messages.json', function(req, res) {
   res.send(JSON.stringify(messages));
+});
+
+//accept POST requests to add a new messages
+app.post('/', function(req, res) {
+  if (req.body && req.body.msg !== undefined) {
+    messages.push(req.body.msg);
+  }
+  res.redirect('/');
 });
 
 app.listen(8000);
