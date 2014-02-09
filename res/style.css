@@ -1,0 +1,22 @@
+.message-box {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.message-box > .message-entry {
+  width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.input-field {
+  width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.input-field > form > input[type="text"] {
+  width: 740px;
+}
