@@ -17,6 +17,6 @@
   margin-left: auto;
 }
 
-.input-field > form > input[type="text"] {
+.input-field > input[type="text"] {
   width: 740px;
 }

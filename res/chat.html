@@ -1,20 +1,20 @@
 <html>
-  <head>
+<head>
     <title>Chatbox</title>
-  </head>
-  <script type="application/javascript" src="/script.js"></script>
-  <link rel="Stylesheet" href="/style.css" />
-  <body>
-    <div class="input-field">
-      <form action="/" method="POST">
-        <input type="text" name="msg" placeholder="type a message" />
-        <input type="submit" value="Send" />
-      </form>
-    </div>
-    <div class="message-box">
-      <div class="message-entry">
+</head>
+<script type="application/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+<link rel="Stylesheet" href="/style.css" />
+<body>
+<div class="input-field">
+    <input type="text" name="msg" placeholder="type a message" />
+    <input type="button" value="Send" />
+</div>
+<div class="message-box">
+    <div class="message-entry">
         <p>Hello world!</p>
-      </div>
     </div>
-  </body>
+</div>
+
+<script type="application/javascript" src="/script.js"></script>
+</body>
 </html>
