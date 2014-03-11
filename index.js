@@ -25,9 +25,16 @@ app.get('/script.js', function(req, res) {
     res.sendfile('./res/script.js');
 });
 
+// when a client connects to the server,
 io.sockets.on('connection', function(socket) {
+    // the server emits a chat event and sends
+    // the array of all messages.
     socket.emit('chat', messages);
+    // the server registers a callback
+    // if it receives an event called addMessage
     socket.on('addMessage', function(data) {
+        // it adds the data (a new message) to the
+        // messages array, and updates the other clients
         if (data !== undefined) {
             messages.push(data);
             io.sockets.emit('update', data);
@@ -35,5 +42,6 @@ io.sockets.on('connection', function(socket) {
     })
 })
 
+// tells the server to listen to port 8000
 server.listen(8000);
 console.log('app started on port 8000');

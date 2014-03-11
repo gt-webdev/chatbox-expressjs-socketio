@@ -27,8 +27,11 @@ function appendMessage(message) {
     }
 }
 
+// gets a socekt object to work with
 var socket = io.connect('http://localhost');
+// when the client connects to the server:
 socket.on('connect', function() {
+    // Registers a callback for chat event
     socket.on('chat', function(data) {
 
         var message_box = document.querySelector('.message-box');
@@ -43,10 +46,14 @@ socket.on('connect', function() {
     });
 });
 
+// If the client gets an update event
+// it adds the message it gets to the web page.
 socket.on('update', function(data) {
     appendMessage(data.data);
 })
 
+// if the user selects the send button, an addMessage event is sent to the
+// server with the message in a json object
 document.querySelector('.input-field >  input[type="button"]').onclick = function(){
     var message = document.querySelector('.input-field >  input[type="text"]').value;
     socket.emit('addMessage', {data: message});
